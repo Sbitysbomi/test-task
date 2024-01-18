@@ -1,10 +1,10 @@
 import { startTransition } from 'react';
 import {useNavigate} from "react-router-dom";
-import {Loader} from "shared/ui/Loader/Loader.tsx";
-import {FC, memo, useCallback} from "react";
+import {Loader} from "shared/ui/Loader";
+import {FC} from "react";
 import {List,} from "react-virtualized"
 import {IPost} from "entities/Post/model/Post.ts";
-import {PostCard} from "features/FetchPosts/PostsList/ui/PostCard.tsx";
+import {PostCard} from "features/PostsList/ui/PostCard.tsx";
 interface PostsListProps{
     className?: string;
     data: IPost[]
@@ -17,7 +17,7 @@ export const PostsList:FC<PostsListProps> = (props) => {
     const {data, isLoading} = props
 
     const navigate = useNavigate()
-    const handleDetailsClick = (id: string) => {
+    const handleDetailsClick  = (id: string) => {
         startTransition(() => {
             navigate(`/${id}`)
         })
@@ -44,10 +44,10 @@ export const PostsList:FC<PostsListProps> = (props) => {
                      return (
                         <div key={key} style={style}>
                             <PostCard
-                                data={profile}
-                                isDetailed={false}
+                                post={profile}
                                 ButtonText={"Подробнее"}
                                 onButtonClick={() => handleDetailsClick(profile.id)}
+                                isInList={true}
                             />
                         </div>
                     );

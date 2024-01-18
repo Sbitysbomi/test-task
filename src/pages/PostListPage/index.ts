@@ -1,3 +1,1 @@
-export {
-    PostListPageAsync as PostListPage
-} from './ui/PostListPage.async.tsx'
+export { PostListPage } from './ui/PostListPage.tsx'

@@ -1,14 +1,14 @@
-import {PostCard} from "features/FetchPosts/PostsList/ui/PostCard.tsx";
+import {PostCard} from "features/PostsList/ui/PostCard.tsx";
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetPostsListQuery} from "features/FetchPosts/PostsList/api/postsListApi.ts";
-import {Loader} from "shared/ui/Loader/Loader.tsx";
-import {startTransition} from "react";
+import {useGetPostsListQuery} from "features/PostsList/api/postsListApi.ts";
+import {Loader} from "shared/ui/Loader";
+import {FC, startTransition} from "react";
 
 interface PostDetailedPageProps{
     className?: string;
 }
 
-export const PostDetailedPage = ({className}: PostDetailedPageProps) => {
+export const PostDetailedPage:FC<PostDetailedPageProps> = (props ) => {
     const {id} = useParams()
 
 
@@ -37,8 +37,8 @@ export const PostDetailedPage = ({className}: PostDetailedPageProps) => {
             {data && data.map((data) =>
                 <PostCard
                     key={data.id}
-                    data={data}
-                    isDetailed={true}
+                    post={data}
+                    isInList={false}
                     ButtonText={"Назад"}
                     onButtonClick={handleClick}
                 />)}

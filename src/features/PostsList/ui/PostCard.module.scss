@@ -6,3 +6,10 @@
   padding: 10px 20px;
   gap:10px;
 }
+.InListDescription {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //max-width: 500px;
+
+}

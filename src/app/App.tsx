@@ -1,4 +1,4 @@
-import './App.scss'
+import '../App.scss'
 import {AppRouter} from "app/providers/AppRouter";
 
 function App() {
